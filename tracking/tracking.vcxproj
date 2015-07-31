@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{94D42E08-4B7A-48F8-866C-EF3CE822A3F3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>tracking</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_58_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_58_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\Formats;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintillad.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpngd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiffd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpegd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlibd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\Formats;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintilla.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpng.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiff.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpeg.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlib.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexu.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="CellList.h" />
+    <ClInclude Include="TrackMap.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="VertexList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TrackMap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\FLIVR\x64\Debug\BBox.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Color.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Plane.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Point.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Ray.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Transform.obj" />
+    <Object Include="..\FLIVR\x64\Debug\utility.obj" />
+    <Object Include="..\FLIVR\x64\Debug\Vector.obj" />
+    <Object Include="..\Formats\x64\Debug\base_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\lbl_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\lsm_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\msk_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\msk_writer.obj" />
+    <Object Include="..\Formats\x64\Debug\nrrd_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\nrrd_writer.obj" />
+    <Object Include="..\Formats\x64\Debug\oib_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\oif_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\pvxml_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\tif_reader.obj" />
+    <Object Include="..\Formats\x64\Debug\tif_writer.obj" />
+    <Object Include="..\pole\x64\Debug\pole.obj" />
+    <Object Include="..\teem\x64\Debug\754.obj" />
+    <Object Include="..\teem\x64\Debug\accessors.obj" />
+    <Object Include="..\teem\x64\Debug\apply1D.obj" />
+    <Object Include="..\teem\x64\Debug\apply2D.obj" />
+    <Object Include="..\teem\x64\Debug\arith.obj" />
+    <Object Include="..\teem\x64\Debug\array.obj" />
+    <Object Include="..\teem\x64\Debug\arraysNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\axis.obj" />
+    <Object Include="..\teem\x64\Debug\biffbiff.obj" />
+    <Object Include="..\teem\x64\Debug\cc.obj" />
+    <Object Include="..\teem\x64\Debug\ccmethods.obj" />
+    <Object Include="..\teem\x64\Debug\comment.obj" />
+    <Object Include="..\teem\x64\Debug\convertNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\defaultsHest.obj" />
+    <Object Include="..\teem\x64\Debug\defaultsNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\dio.obj" />
+    <Object Include="..\teem\x64\Debug\encoding.obj" />
+    <Object Include="..\teem\x64\Debug\encodingAscii.obj" />
+    <Object Include="..\teem\x64\Debug\encodingBzip2.obj" />
+    <Object Include="..\teem\x64\Debug\encodingGzip.obj" />
+    <Object Include="..\teem\x64\Debug\encodingHex.obj" />
+    <Object Include="..\teem\x64\Debug\encodingRaw.obj" />
+    <Object Include="..\teem\x64\Debug\endianAir.obj" />
+    <Object Include="..\teem\x64\Debug\endianNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\enum.obj" />
+    <Object Include="..\teem\x64\Debug\enumsNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\filt.obj" />
+    <Object Include="..\teem\x64\Debug\format.obj" />
+    <Object Include="..\teem\x64\Debug\formatEPS.obj" />
+    <Object Include="..\teem\x64\Debug\formatNRRD.obj" />
+    <Object Include="..\teem\x64\Debug\formatPNG.obj" />
+    <Object Include="..\teem\x64\Debug\formatPNM.obj" />
+    <Object Include="..\teem\x64\Debug\formatText.obj" />
+    <Object Include="..\teem\x64\Debug\formatVTK.obj" />
+    <Object Include="..\teem\x64\Debug\gzio.obj" />
+    <Object Include="..\teem\x64\Debug\hestNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\histogram.obj" />
+    <Object Include="..\teem\x64\Debug\iter.obj" />
+    <Object Include="..\teem\x64\Debug\kernel.obj" />
+    <Object Include="..\teem\x64\Debug\keyvalue.obj" />
+    <Object Include="..\teem\x64\Debug\map.obj" />
+    <Object Include="..\teem\x64\Debug\math.obj" />
+    <Object Include="..\teem\x64\Debug\measure.obj" />
+    <Object Include="..\teem\x64\Debug\methodsHest.obj" />
+    <Object Include="..\teem\x64\Debug\methodsNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\miscAir.obj" />
+    <Object Include="..\teem\x64\Debug\mop.obj" />
+    <Object Include="..\teem\x64\Debug\parseAir.obj" />
+    <Object Include="..\teem\x64\Debug\parseHest.obj" />
+    <Object Include="..\teem\x64\Debug\parseNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\randMT.obj" />
+    <Object Include="..\teem\x64\Debug\range.obj" />
+    <Object Include="..\teem\x64\Debug\read.obj" />
+    <Object Include="..\teem\x64\Debug\reorder.obj" />
+    <Object Include="..\teem\x64\Debug\resampleContext.obj" />
+    <Object Include="..\teem\x64\Debug\resampleNrrd.obj" />
+    <Object Include="..\teem\x64\Debug\sane.obj" />
+    <Object Include="..\teem\x64\Debug\simple.obj" />
+    <Object Include="..\teem\x64\Debug\string.obj" />
+    <Object Include="..\teem\x64\Debug\subset.obj" />
+    <Object Include="..\teem\x64\Debug\superset.obj" />
+    <Object Include="..\teem\x64\Debug\threadAir.obj" />
+    <Object Include="..\teem\x64\Debug\tmfKernel.obj" />
+    <Object Include="..\teem\x64\Debug\usage.obj" />
+    <Object Include="..\teem\x64\Debug\winKernel.obj" />
+    <Object Include="..\teem\x64\Debug\write.obj" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

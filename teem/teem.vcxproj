@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B8E69AA3-99D5-4E82-9F43-B225F5F9FB11}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>teem</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;TEEM_32BIT=0;TEEM_DIO=0;TEEM_ENDIAN=1234;TEEM_QNANHIBIT=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\teem;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;TEEM_32BIT=0;TEEM_DIO=0;TEEM_ENDIAN=1234;TEEM_QNANHIBIT=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\teem;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;TEEM_32BIT=0;TEEM_DIO=0;TEEM_ENDIAN=1234;TEEM_QNANHIBIT=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\teem;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;TEEM_32BIT=0;TEEM_DIO=0;TEEM_ENDIAN=1234;TEEM_QNANHIBIT=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\teem;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Air\air.h" />
+    <ClInclude Include="Air\privateAir.h" />
+    <ClInclude Include="Biff\biff.h" />
+    <ClInclude Include="Hest\hest.h" />
+    <ClInclude Include="Hest\privateHest.h" />
+    <ClInclude Include="Nrrd\nrrd.h" />
+    <ClInclude Include="Nrrd\nrrdDefines.h" />
+    <ClInclude Include="Nrrd\nrrdEnums.h" />
+    <ClInclude Include="Nrrd\nrrdMacros.h" />
+    <ClInclude Include="Nrrd\privateNrrd.h" />
+    <ClInclude Include="teem32bit.h" />
+    <ClInclude Include="teemDio.h" />
+    <ClInclude Include="teemEndian.h" />
+    <ClInclude Include="teemPng.h" />
+    <ClInclude Include="teemQnanhibit.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Air\754.c" />
+    <ClCompile Include="Air\array.c" />
+    <ClCompile Include="Air\dio.c" />
+    <ClCompile Include="Air\endianAir.c" />
+    <ClCompile Include="Air\enum.c" />
+    <ClCompile Include="Air\math.c" />
+    <ClCompile Include="Air\miscAir.c" />
+    <ClCompile Include="Air\mop.c" />
+    <ClCompile Include="Air\parseAir.c" />
+    <ClCompile Include="Air\randMT.c" />
+    <ClCompile Include="Air\sane.c" />
+    <ClCompile Include="Air\string.c" />
+    <ClCompile Include="Air\threadAir.c" />
+    <ClCompile Include="Biff\biffbiff.c" />
+    <ClCompile Include="Hest\defaultsHest.c" />
+    <ClCompile Include="Hest\methodsHest.c" />
+    <ClCompile Include="Hest\parseHest.c" />
+    <ClCompile Include="Hest\usage.c" />
+    <ClCompile Include="Nrrd\accessors.c" />
+    <ClCompile Include="Nrrd\apply1D.c" />
+    <ClCompile Include="Nrrd\apply2D.c" />
+    <ClCompile Include="Nrrd\arith.c" />
+    <ClCompile Include="Nrrd\arraysNrrd.c" />
+    <ClCompile Include="Nrrd\axis.c" />
+    <ClCompile Include="Nrrd\cc.c" />
+    <ClCompile Include="Nrrd\ccmethods.c" />
+    <ClCompile Include="Nrrd\comment.c" />
+    <ClCompile Include="Nrrd\convertNrrd.c" />
+    <ClCompile Include="Nrrd\defaultsNrrd.c" />
+    <ClCompile Include="Nrrd\encoding.c" />
+    <ClCompile Include="Nrrd\encodingAscii.c" />
+    <ClCompile Include="Nrrd\encodingBzip2.c" />
+    <ClCompile Include="Nrrd\encodingGzip.c" />
+    <ClCompile Include="Nrrd\encodingHex.c" />
+    <ClCompile Include="Nrrd\encodingRaw.c" />
+    <ClCompile Include="Nrrd\endianNrrd.c" />
+    <ClCompile Include="Nrrd\enumsNrrd.c" />
+    <ClCompile Include="Nrrd\filt.c" />
+    <ClCompile Include="Nrrd\format.c" />
+    <ClCompile Include="Nrrd\formatEPS.c" />
+    <ClCompile Include="Nrrd\formatNRRD.c" />
+    <ClCompile Include="Nrrd\formatPNG.c" />
+    <ClCompile Include="Nrrd\formatPNM.c" />
+    <ClCompile Include="Nrrd\formatText.c" />
+    <ClCompile Include="Nrrd\formatVTK.c" />
+    <ClCompile Include="Nrrd\gzio.c" />
+    <ClCompile Include="Nrrd\hestNrrd.c" />
+    <ClCompile Include="Nrrd\histogram.c" />
+    <ClCompile Include="Nrrd\iter.c" />
+    <ClCompile Include="Nrrd\kernel.c" />
+    <ClCompile Include="Nrrd\keyvalue.c" />
+    <ClCompile Include="Nrrd\map.c" />
+    <ClCompile Include="Nrrd\measure.c" />
+    <ClCompile Include="Nrrd\methodsNrrd.c" />
+    <ClCompile Include="Nrrd\parseNrrd.c" />
+    <ClCompile Include="Nrrd\range.c" />
+    <ClCompile Include="Nrrd\read.c" />
+    <ClCompile Include="Nrrd\reorder.c" />
+    <ClCompile Include="Nrrd\resampleContext.c" />
+    <ClCompile Include="Nrrd\resampleNrrd.c" />
+    <ClCompile Include="Nrrd\simple.c" />
+    <ClCompile Include="Nrrd\subset.c" />
+    <ClCompile Include="Nrrd\superset.c" />
+    <ClCompile Include="Nrrd\tmfKernel.c" />
+    <ClCompile Include="Nrrd\winKernel.c" />
+    <ClCompile Include="Nrrd\write.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
