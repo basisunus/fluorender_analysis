@@ -391,6 +391,8 @@ bool TrackMapProcessor::ResolveForward(TrackMap& track_map, size_t frame)
 	{
 		cells.clear();
 		v1 = iter->second->GetInterVert();
+		if (v1 == InterGraph::null_vertex())
+			continue;
 		adj_verts = boost::adjacent_vertices(v1, inter_graph);
 		//for each adjacent vertex
 		for (inter_iter = adj_verts.first;
@@ -557,6 +559,8 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 	InterVert inter_vert;
 	InterIter inter_iter;
 	std::pair<InterEdge, bool> e, e0;
+	std::vector<InterEdge> edges_to_remove;
+	std::vector<InterEdge>::iterator edge_to_remove;
 
 	for (size_t i = 0; i < bin.size(); ++i)
 	{
@@ -576,6 +580,7 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 			//relink inter graph
 			inter_vert = vertex->GetInterVert();
 			adj_verts = boost::adjacent_vertices(inter_vert, graph);
+			edges_to_remove.clear();
 			//for each adjacent vertex
 			for (inter_iter = adj_verts.first;
 				inter_iter != adj_verts.second; ++inter_iter)
@@ -602,11 +607,17 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 					graph[e0.first].size_f += graph[e.first].size_f;
 				}
 				//delete the old edge
+				edges_to_remove.push_back(e.first);
 				//graph.remove_edge(e.first);
 			}
+			//remove edges
+			for (edge_to_remove = edges_to_remove.begin();
+				edge_to_remove != edges_to_remove.end();
+				++edge_to_remove)
+				graph.remove_edge(*edge_to_remove);
 			//remove the vertex from inter graph
 			//edges should be removed as well
-			boost::remove_vertex(inter_vert, graph);
+			//boost::remove_vertex(inter_vert, graph);
 
 			//remove vertex from list
 			vert_iter = vertex_list.find(vertex->Id());
