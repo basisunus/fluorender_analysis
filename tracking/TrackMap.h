@@ -6,6 +6,13 @@
 
 namespace FL
 {
+//tags
+#define TAG_CELL		1
+#define TAG_EDGE		2
+#define TAG_VERT		3
+#define TAG_CMAP		4
+#define TAG_FRAM		5
+
 	class TrackMap;
 	class TrackMapProcessor
 	{
@@ -30,6 +37,8 @@ namespace FL
 			void *label1, void *label2);
 		bool ResolveForward(TrackMap& track_map, size_t frame);
 		bool ResolveBackward(TrackMap& track_map, size_t frame);
+
+		bool Export(TrackMap& track_map, std::string &filename);
 
 	private:
 		float m_contact_thresh;

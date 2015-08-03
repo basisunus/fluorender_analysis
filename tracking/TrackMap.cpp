@@ -1,4 +1,5 @@
 #include "TrackMap.h"
+#include <fstream>
 
 using namespace FL;
 
@@ -632,3 +633,26 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 
 	return true;
 }
+
+bool TrackMapProcessor::Export(TrackMap & track_map, std::string &filename)
+{
+	std::ofstream ofs(filename, std::ios::out | std::ios::binary);
+	if (ofs.bad())
+		return false;
+
+	//header
+	std::string header = "FluoRender links";
+	ofs.write(header.c_str(), header.size());
+
+	//number of frames
+	size_t num = track_map.m_frame_num;
+	ofs.write(reinterpret_cast<const char*>(&num), sizeof(num));
+
+	//write each frame
+	for (size_t i = 0; i < num; ++i)
+	{
+
+	}
+	return true;
+}
+
