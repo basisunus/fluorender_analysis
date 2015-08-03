@@ -3,14 +3,15 @@
 
 #include "CellList.h"
 #include "VertexList.h"
+#include <fstream>
 
 namespace FL
 {
 //tags
 #define TAG_CELL		1
-#define TAG_EDGE		2
-#define TAG_VERT		3
-#define TAG_CMAP		4
+#define TAG_VERT		2
+#define TAG_INTRA_EDGE	3
+#define TAG_INTER_EDGE	4
 #define TAG_FRAM		5
 
 	class TrackMap;
@@ -35,8 +36,7 @@ namespace FL
 			size_t f1, size_t f2,
 			void *data1, void *data2,
 			void *label1, void *label2);
-		bool ResolveForward(TrackMap& track_map, size_t frame);
-		bool ResolveBackward(TrackMap& track_map, size_t frame);
+		bool ResolveGraph(TrackMap& track_map, size_t frame1, size_t frame2);
 
 		bool Export(TrackMap& track_map, std::string &filename);
 
@@ -62,6 +62,15 @@ namespace FL
 		size_t GetBinsCellCount(std::vector<CellBin> &bins);
 		bool MergeCells(VertexList& vertex_list,
 			InterGraph &graph, CellBin &bin);
+
+		//export
+		void WriteBool(std::ofstream& ofs, bool value);
+		void WriteTag(std::ofstream& ofs, unsigned char tag);
+		void WriteUint(std::ofstream& ofs, unsigned int value);
+		void WriteFloat(std::ofstream& ofs, float value);
+		void WritePoint(std::ofstream& ofs, FLIVR::Point &point);
+		void WriteCell(std::ofstream& ofs, pCell &cell);
+		void WriteVertex(std::ofstream& ofs, pVertex &vertex);
 	};
 
 	inline void TrackMapProcessor::SetContactThresh(float value)
@@ -72,6 +81,47 @@ namespace FL
 	inline void TrackMapProcessor::SetSizeThresh(float value)
 	{
 		m_size_thresh = value;
+	}
+
+	inline void TrackMapProcessor::WriteBool(std::ofstream& ofs, bool value)
+	{
+		ofs.write(reinterpret_cast<const char*>(&value), sizeof(bool));
+	}
+
+	inline void TrackMapProcessor::WriteTag(std::ofstream& ofs, unsigned char tag)
+	{
+		ofs.write(reinterpret_cast<const char*>(&tag), sizeof(unsigned char));
+	}
+
+	inline void TrackMapProcessor::WriteUint(std::ofstream& ofs, unsigned int value)
+	{
+		ofs.write(reinterpret_cast<const char*>(&value), sizeof(unsigned int));
+	}
+
+	inline void TrackMapProcessor::WriteFloat(std::ofstream& ofs, float value)
+	{
+		ofs.write(reinterpret_cast<const char*>(&value), sizeof(float));
+	}
+
+	inline void TrackMapProcessor::WritePoint(std::ofstream& ofs, FLIVR::Point &point)
+	{
+		double x = point.x();
+		ofs.write(reinterpret_cast<const char*>(&x), sizeof(double));
+		x = point.y();
+		ofs.write(reinterpret_cast<const char*>(&x), sizeof(double));
+		x = point.z();
+		ofs.write(reinterpret_cast<const char*>(&x), sizeof(double));
+	}
+
+	inline void TrackMapProcessor::WriteCell(std::ofstream& ofs, pCell &cell)
+	{
+		WriteTag(ofs, TAG_CELL);
+		WriteUint(ofs, cell->Id());
+		WriteUint(ofs, cell->GetSizeUi());
+		WriteFloat(ofs, cell->GetSizeF());
+		WriteUint(ofs, cell->GetExternalUi());
+		WriteFloat(ofs, cell->GetExternalF());
+		WritePoint(ofs, cell->GetCenter());
 	}
 
 	class TrackMap

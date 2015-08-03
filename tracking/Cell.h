@@ -34,7 +34,8 @@ namespace FL
 		IntraCellData, IntraEdgeData> IntraGraph;
 	typedef IntraGraph::vertex_descriptor IntraVert;
 	typedef IntraGraph::edge_descriptor IntraEdge;
-	typedef boost::graph_traits<IntraGraph>::adjacency_iterator IntraIter;
+	typedef boost::graph_traits<IntraGraph>::adjacency_iterator IntraAdjIter;
+	typedef boost::graph_traits<IntraGraph>::edge_iterator IntraEdgeIter;
 
 	class Cell
 	{
@@ -57,6 +58,8 @@ namespace FL
 		FLIVR::Point &GetCenter();
 		unsigned int GetSizeUi();
 		float GetSizeF();
+		unsigned int GetExternalUi();
+		float GetExternalF();
 
 	private:
 		unsigned int m_id;
@@ -124,6 +127,16 @@ namespace FL
 	inline float Cell::GetSizeF()
 	{
 		return m_size_f;
+	}
+
+	inline unsigned int Cell::GetExternalUi()
+	{
+		return m_external_ui;
+	}
+
+	inline float Cell::GetExternalF()
+	{
+		return m_external_f;
 	}
 
 }//namespace FL

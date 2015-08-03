@@ -16,6 +16,7 @@ namespace FL
 
 	struct InterVertexData
 	{
+		unsigned int id;
 		pwVertex vertex;
 	};
 
@@ -24,7 +25,8 @@ namespace FL
 		InterVertexData, InterEdgeData> InterGraph;
 	typedef InterGraph::vertex_descriptor InterVert;
 	typedef InterGraph::edge_descriptor InterEdge;
-	typedef boost::graph_traits<InterGraph>::adjacency_iterator InterIter;
+	typedef boost::graph_traits<InterGraph>::adjacency_iterator InterAdjIter;
+	typedef boost::graph_traits<InterGraph>::edge_iterator InterEdgeIter;
 
 	typedef std::vector<pwCell> CellBin;
 	typedef CellBin::iterator CellBinIter;
@@ -45,14 +47,15 @@ namespace FL
 		void SetCenter(FLIVR::Point &center);
 		void SetSize(unsigned int size_ui, float size_f);
 
-		//cells
-		void AddCell(pCell &cell);
-		CellBinIter GetCellsBegin();
-		CellBinIter GetCellsEnd();
-
 		FLIVR::Point &GetCenter();
 		unsigned int GetSizeUi();
 		float GetSizeF();
+
+		//cells
+		size_t GetCellNum();
+		void AddCell(pCell &cell);
+		CellBinIter GetCellsBegin();
+		CellBinIter GetCellsEnd();
 
 	private:
 		unsigned int m_id;
@@ -87,6 +90,11 @@ namespace FL
 	{
 		m_size_ui = size_ui;
 		m_size_f = size_f;
+	}
+
+	inline size_t Vertex::GetCellNum()
+	{
+		return m_cells.size();
 	}
 
 	inline void Vertex::AddCell(pCell &cell)

@@ -1,5 +1,4 @@
 #include "TrackMap.h"
-#include <fstream>
 
 using namespace FL;
 
@@ -326,12 +325,14 @@ bool TrackMapProcessor::LinkVertices(InterGraph& graph,
 	if (v1 == InterGraph::null_vertex())
 	{
 		v1 = boost::add_vertex(graph);
+		graph[v1].id = vertex1->Id();
 		graph[v1].vertex = vertex1;
 		vertex1->SetInterVert(v1);
 	}
 	if (v2 == InterGraph::null_vertex())
 	{
 		v2 = boost::add_vertex(graph);
+		graph[v2].id = vertex2->Id();
 		graph[v2].vertex = vertex2;
 		vertex2->SetInterVert(v2);
 	}
@@ -356,29 +357,32 @@ bool TrackMapProcessor::LinkVertices(InterGraph& graph,
 	return true;
 }
 
-bool TrackMapProcessor::ResolveForward(TrackMap& track_map, size_t frame)
+bool TrackMapProcessor::ResolveGraph(TrackMap& track_map, size_t frame1, size_t frame2)
 {
-	if (frame >= track_map.m_frame_num - 1)
+	if (frame1 >= track_map.m_frame_num ||
+		frame2 >= track_map.m_frame_num ||
+		frame1 == frame2)
 		return false;
 
-	VertexList &vertex_list1 = track_map.m_vertices_list.at(frame);
-	VertexList &vertex_list2 = track_map.m_vertices_list.at(frame + 1);
-	CellList &cell_list2 = track_map.m_cells_list.at(frame + 1);
-	InterGraph &inter_graph = track_map.m_inter_graph_list.at(frame);
-	IntraGraph &intra_graph = track_map.m_intra_graph_list.at(frame + 1);
+	VertexList &vertex_list1 = track_map.m_vertices_list.at(frame1);
+	VertexList &vertex_list2 = track_map.m_vertices_list.at(frame2);
+	CellList &cell_list2 = track_map.m_cells_list.at(frame2);
+	IntraGraph &intra_graph = track_map.m_intra_graph_list.at(frame2);
+	InterGraph &inter_graph = track_map.m_inter_graph_list.at(
+		frame1>frame2?frame2:frame1);
 
 	VertexListIter iter;
 	InterVert v1, v2;
-	std::pair<InterIter, InterIter> adj_verts;
-	InterIter inter_iter;
+	std::pair<InterAdjIter, InterAdjIter> adj_verts;
+	InterAdjIter inter_iter;
 	std::vector<pwCell> cells;
 	CellBinIter pwcell_iter;
 	pVertex vertex2;
 	std::vector<CellBin> cell_bins;
 	pCell cell2, cell2c;
 	IntraVert c2, c2c;
-	std::pair<IntraIter, IntraIter> adj_cells;
-	IntraIter intra_iter;
+	std::pair<IntraAdjIter, IntraAdjIter> adj_cells;
+	IntraAdjIter intra_iter;
 	bool added;
 	std::pair<IntraEdge, bool> intra_edge;
 	float osizef, c1sizef, c2sizef;
@@ -478,11 +482,6 @@ bool TrackMapProcessor::ResolveForward(TrackMap& track_map, size_t frame)
 	return true;
 }
 
-bool TrackMapProcessor::ResolveBackward(TrackMap& track_map, size_t frame)
-{
-	return true;
-}
-
 bool TrackMapProcessor::EqualCells(pwCell &cell1, pwCell &cell2)
 {
 	return !cell1.owner_before(cell2) && !cell2.owner_before(cell1);
@@ -556,9 +555,9 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 	pCell cell0, cell;
 	pVertex vertex0, vertex;
 	VertexListIter vert_iter;
-	std::pair<InterIter, InterIter> adj_verts;
+	std::pair<InterAdjIter, InterAdjIter> adj_verts;
 	InterVert inter_vert;
-	InterIter inter_iter;
+	InterAdjIter inter_iter;
 	std::pair<InterEdge, bool> e, e0;
 	std::vector<InterEdge> edges_to_remove;
 	std::vector<InterEdge>::iterator edge_to_remove;
@@ -636,6 +635,12 @@ bool TrackMapProcessor::MergeCells(VertexList& vertex_list,
 
 bool TrackMapProcessor::Export(TrackMap & track_map, std::string &filename)
 {
+	if (track_map.m_frame_num == 0 ||
+		track_map.m_frame_num != track_map.m_cells_list.size() ||
+		track_map.m_frame_num != track_map.m_vertices_list.size() ||
+		track_map.m_frame_num != track_map.m_inter_graph_list.size() + 1)
+		return false;
+
 	std::ofstream ofs(filename, std::ios::out | std::ios::binary);
 	if (ofs.bad())
 		return false;
@@ -648,11 +653,112 @@ bool TrackMapProcessor::Export(TrackMap & track_map, std::string &filename)
 	size_t num = track_map.m_frame_num;
 	ofs.write(reinterpret_cast<const char*>(&num), sizeof(num));
 
+	VertexListIter iter;
+	pVertex vertex;
+	IntraEdgeIter intra_iter;
+	std::pair<IntraEdgeIter, IntraEdgeIter> intra_pair;
+	IntraVert intra_vert;
+	InterEdgeIter inter_iter;
+	std::pair<InterEdgeIter, InterEdgeIter> inter_pair;
+	InterVert inter_vert;
+	size_t edge_num;
 	//write each frame
 	for (size_t i = 0; i < num; ++i)
 	{
+		WriteTag(ofs, TAG_FRAM);
+		//frame id
+		WriteUint(ofs, i);
 
+		//write each vertex
+		VertexList &vertex_list = track_map.m_vertices_list.at(i);
+		//vertex number
+		WriteUint(ofs, vertex_list.size());
+		for (iter = vertex_list.begin();
+			iter != vertex_list.end(); ++iter)
+		{
+			vertex = iter->second;
+			WriteVertex(ofs, vertex);
+		}
+		//write intra edges
+		IntraGraph &intra_graph = track_map.m_intra_graph_list.at(i);
+		intra_pair = edges(intra_graph);
+		edge_num = 0;
+		for (intra_iter = intra_pair.first;
+			intra_iter != intra_pair.second;
+			++intra_iter)
+			edge_num++;
+		//intra edge num
+		WriteUint(ofs, edge_num);
+		//write each intra edge
+		for (intra_iter = intra_pair.first;
+			intra_iter != intra_pair.second;
+			++intra_iter)
+		{
+			WriteTag(ofs, TAG_INTRA_EDGE);
+			//first cell
+			intra_vert = boost::source(*intra_iter, intra_graph);
+			WriteUint(ofs, intra_graph[intra_vert].id);
+			//second cell
+			intra_vert = boost::target(*intra_iter, intra_graph);
+			WriteUint(ofs, intra_graph[intra_vert].id);
+			//size
+			WriteUint(ofs, intra_graph[*intra_iter].size_ui);
+			WriteFloat(ofs, intra_graph[*intra_iter].size_f);
+		}
+		//write inter edges
+		if (i == 0)
+			continue;
+		InterGraph &inter_graph = track_map.m_inter_graph_list.at(i - 1);
+		inter_pair = boost::edges(inter_graph);
+		edge_num = 0;
+		for (inter_iter = inter_pair.first;
+			inter_iter != inter_pair.second;
+			++inter_iter)
+			edge_num++;
+		//inter edge number
+		WriteUint(ofs, edge_num);
+		//write each inter edge
+		for (inter_iter = inter_pair.first;
+			inter_iter != inter_pair.second;
+			++inter_iter)
+		{
+			WriteTag(ofs, TAG_INTER_EDGE);
+			//first vertex
+			inter_vert = boost::source(*inter_iter, inter_graph);
+			WriteUint(ofs, inter_graph[inter_vert].id);
+			//second vertex
+			inter_vert = boost::target(*inter_iter, inter_graph);
+			WriteUint(ofs, inter_graph[inter_vert].id);
+			//size
+			WriteUint(ofs, inter_graph[*inter_iter].size_ui);
+			WriteFloat(ofs, inter_graph[*inter_iter].size_f);
+			WriteFloat(ofs, inter_graph[*inter_iter].dist);
+			WriteBool(ofs, inter_graph[*inter_iter].link);
+		}
 	}
 	return true;
+}
+
+void TrackMapProcessor::WriteVertex(std::ofstream& ofs, pVertex &vertex)
+{
+	WriteTag(ofs, TAG_VERT);
+	WriteUint(ofs, vertex->Id());
+	WriteUint(ofs, vertex->GetSizeUi());
+	WriteUint(ofs, vertex->GetSizeF());
+	WritePoint(ofs, vertex->GetCenter());
+	//cell number
+	WriteUint(ofs, vertex->GetCellNum());
+
+	//cells
+	CellBinIter iter;
+	pCell cell;
+	for (iter = vertex->GetCellsBegin();
+	iter != vertex->GetCellsEnd(); ++iter)
+	{
+		cell = iter->lock();
+		if (!cell)
+			continue;
+		WriteCell(ofs, cell);
+	}
 }
 

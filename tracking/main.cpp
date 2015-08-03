@@ -120,13 +120,18 @@ int main(int argc, const char* argv[])
 	//resolve multiple links of single vertex
 	for (size_t fi = 0; fi < track_map.GetFrameNum(); ++fi)
 	{
-		if (tm_processor.ResolveForward(track_map, fi))
-			printf("Frame %d and %d resolved.\n", fi, fi + 1);
-		if (tm_processor.ResolveBackward(track_map, fi))
-			printf("Frame %d and %d resolved.\n", fi, fi - 1);
+		if (tm_processor.ResolveGraph(track_map, fi, fi + 1))
+			printf("Frame %zd and %zd resolved.\n", fi, fi + 1);
+		if (tm_processor.ResolveGraph(track_map, fi, fi - 1))
+			printf("Frame %zd and %zd resolved.\n", fi, fi - 1);
 	}
+
+	//save
+	if (tm_processor.Export(track_map, outfilename))
+		printf("Track map saved.\n");
 
 	printf("All done. Quitting.\n");
 
 	return 0;
 }
+
