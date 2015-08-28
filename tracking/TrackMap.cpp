@@ -511,7 +511,6 @@ bool TrackMapProcessor::LinkFrames(TrackMap& track_map,
 		frame1 > frame2 ? frame2 : frame1);
 
 	VertexListIter iter;
-	InterVert v0;
 
 	for (iter = vertex_list1.begin();
 	iter != vertex_list1.end(); ++iter)

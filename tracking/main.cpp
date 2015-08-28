@@ -78,6 +78,8 @@ int main(int argc, const char* argv[])
 		printf("Track map import error.\n");
 		return 0;
 	}
+	else
+		printf("Track map read.\n");
 
 	ostringstream oss;
 	string fn_data;
@@ -89,11 +91,6 @@ int main(int argc, const char* argv[])
 	Nrrd* nrrd_label_out1 = 0;
 	Nrrd* nrrd_label_out2 = 0;
 
-	unsigned int *data_in1;
-	unsigned int *data_in2;
-	unsigned int *data_out1;
-	unsigned int *data_out2;
-
 	//read first frame
 	oss.str("");
 	oss << setfill('0') << setw(fdigits) << fstart;
@@ -104,6 +101,8 @@ int main(int argc, const char* argv[])
 		printf("File error.\n");
 		return 0;
 	}
+	else
+		printf("Label in 1 of frame %d read.\n", 0);
 	size_t nx = nrrd_label_in1->axis[0].size;
 	size_t ny = nrrd_label_in1->axis[1].size;
 	size_t nz = nrrd_label_in1->axis[2].size;
@@ -114,6 +113,7 @@ int main(int argc, const char* argv[])
 	CellMapIter iter;
 	unsigned int label_in1, label_in2;
 	//duplicate
+	nrrd_label_in2 = nrrdNew();
 	nrrdCopy(nrrd_label_in2, nrrd_label_in1);
 	for (i = 0; i < size; ++i)
 	{
@@ -134,6 +134,7 @@ int main(int argc, const char* argv[])
 		}
 	}
 	WriteLabel(nrrd_label_in2, out_format + str + ".lbl");
+	printf("Label in 2 of frame %d written.\n", 0);
 
 	unsigned int label_out1, label_out2;
 	//remaining frames
@@ -145,6 +146,8 @@ int main(int argc, const char* argv[])
 		oss << setfill('0') << setw(fdigits) << fi;
 		str = oss.str();
 		nrrd_label_out1 = ReadLabel(in_format + str + ".lbl");
+		printf("Label out 1 of frame %d read.\n", fi);
+		nrrd_label_out2 = nrrdNew();
 		nrrdCopy(nrrd_label_out2, nrrd_label_out1);
 
 		for (i = 0; i < size; ++i)
@@ -175,6 +178,7 @@ int main(int argc, const char* argv[])
 
 		//save
 		WriteLabel(nrrd_label_out2, out_format + str + ".lbl");
+		printf("Label out 2 of frame %d written.\n", fi);
 
 		//swap
 		nrrdNuke(nrrd_label_in1);
@@ -185,6 +189,8 @@ int main(int argc, const char* argv[])
 
 	nrrdNuke(nrrd_label_out1);
 	nrrdNuke(nrrd_label_out2);
+
+	printf("All done.\n");
 
 	return 0;
 }
