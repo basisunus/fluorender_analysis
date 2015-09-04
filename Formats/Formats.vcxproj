@@ -146,9 +146,7 @@
     <ClInclude Include="oib_reader.h" />
     <ClInclude Include="oif_reader.h" />
     <ClInclude Include="png_resource.h" />
-    <ClInclude Include="pvxml_reader.h" />
     <ClInclude Include="tif_reader.h" />
-    <ClInclude Include="tif_writer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base_reader.cpp" />
@@ -160,9 +158,7 @@
     <ClCompile Include="nrrd_writer.cpp" />
     <ClCompile Include="oib_reader.cpp" />
     <ClCompile Include="oif_reader.cpp" />
-    <ClCompile Include="pvxml_reader.cpp" />
     <ClCompile Include="tif_reader.cpp" />
-    <ClCompile Include="tif_writer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1214,6 +1214,56 @@ bool TrackMapProcessor::Import(TrackMap& track_map, std::string &filename)
 	return true;
 }
 
+bool TrackMapProcessor::ResetVertexIDs(TrackMap& track_map)
+{
+	for (size_t fi = 0; fi < track_map.m_frame_num; ++fi)
+	{
+		VertexList &vertex_list = track_map.m_vertices_list.at(fi);
+		for (VertexListIter vertex_iter = vertex_list.begin();
+		vertex_iter != vertex_list.end(); ++vertex_iter)
+		{
+			pVertex vertex = vertex_iter->second;
+			if (vertex->GetCellNum() <= 1)
+				continue;
+			unsigned int max_id = 0;
+			float max_size = 0.0f;
+			for (CellBinIter cell_iter = vertex->GetCellsBegin();
+			cell_iter != vertex->GetCellsEnd(); ++cell_iter)
+			{
+				pCell cell = cell_iter->lock();
+				if (cell)
+				{
+					if (cell->GetSizeF() > max_size)
+					{
+						max_size = cell->GetSizeF();
+						max_id = cell->Id();
+					}
+				}
+			}
+			if (max_id)
+			{
+				vertex->Id(max_id);
+				if (fi > 0)
+				{
+					InterGraph &inter_graph = track_map.m_inter_graph_list.at(fi - 1);
+					InterVert inter_vert = vertex->GetInterVert(inter_graph);
+					if (inter_vert != InterGraph::null_vertex())
+						inter_graph[inter_vert].id = max_id;
+				}
+				if (fi < track_map.m_frame_num - 1)
+				{
+					InterGraph &inter_graph = track_map.m_inter_graph_list.at(fi);
+					InterVert inter_vert = vertex->GetInterVert(inter_graph);
+					if (inter_vert != InterGraph::null_vertex())
+						inter_graph[inter_vert].id = max_id;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
 void TrackMapProcessor::WriteVertex(std::ofstream& ofs, pVertex &vertex)
 {
 	WriteTag(ofs, TAG_VERT);

@@ -72,14 +72,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_58_0;$(IncludePath)</IncludePath>
+    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_59_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_58_0;$(IncludePath)</IncludePath>
+    <IncludePath>E:\PROJECTS\tracking\fluorender_analysis\FLIVR;E:\PROJECTS\boost_1_59_0;E:\PROJECTS\wxWidgets\include;E:\PROJECTS\wxWidgets\include\msvc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,7 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintillad.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpngd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiffd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpegd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlibd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintillad.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpngd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiffd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpegd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlibd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpatd.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\FLIVR.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\Formats.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\pole.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\teem.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\tracking.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,7 +146,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintilla.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpng.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiff.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpeg.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlib.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexu.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31u_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31u_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintilla.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpng.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiff.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpeg.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlib.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexu.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpat.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Release\FLIVR.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Release\Formats.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Release\pole.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Release\teem.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -159,95 +159,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TrackMap.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="..\FLIVR\x64\Release\BBox.obj" />
-    <Object Include="..\FLIVR\x64\Release\Color.obj" />
-    <Object Include="..\FLIVR\x64\Release\Plane.obj" />
-    <Object Include="..\FLIVR\x64\Release\Point.obj" />
-    <Object Include="..\FLIVR\x64\Release\Ray.obj" />
-    <Object Include="..\FLIVR\x64\Release\Transform.obj" />
-    <Object Include="..\FLIVR\x64\Release\utility.obj" />
-    <Object Include="..\FLIVR\x64\Release\Vector.obj" />
-    <Object Include="..\Formats\x64\Release\base_reader.obj" />
-    <Object Include="..\Formats\x64\Release\lbl_reader.obj" />
-    <Object Include="..\Formats\x64\Release\lsm_reader.obj" />
-    <Object Include="..\Formats\x64\Release\msk_reader.obj" />
-    <Object Include="..\Formats\x64\Release\msk_writer.obj" />
-    <Object Include="..\Formats\x64\Release\nrrd_reader.obj" />
-    <Object Include="..\Formats\x64\Release\nrrd_writer.obj" />
-    <Object Include="..\Formats\x64\Release\oib_reader.obj" />
-    <Object Include="..\Formats\x64\Release\oif_reader.obj" />
-    <Object Include="..\Formats\x64\Release\pvxml_reader.obj" />
-    <Object Include="..\Formats\x64\Release\tif_reader.obj" />
-    <Object Include="..\Formats\x64\Release\tif_writer.obj" />
-    <Object Include="..\pole\x64\Release\pole.obj" />
-    <Object Include="..\teem\x64\Release\754.obj" />
-    <Object Include="..\teem\x64\Release\accessors.obj" />
-    <Object Include="..\teem\x64\Release\apply1D.obj" />
-    <Object Include="..\teem\x64\Release\apply2D.obj" />
-    <Object Include="..\teem\x64\Release\arith.obj" />
-    <Object Include="..\teem\x64\Release\array.obj" />
-    <Object Include="..\teem\x64\Release\arraysNrrd.obj" />
-    <Object Include="..\teem\x64\Release\axis.obj" />
-    <Object Include="..\teem\x64\Release\biffbiff.obj" />
-    <Object Include="..\teem\x64\Release\cc.obj" />
-    <Object Include="..\teem\x64\Release\ccmethods.obj" />
-    <Object Include="..\teem\x64\Release\comment.obj" />
-    <Object Include="..\teem\x64\Release\convertNrrd.obj" />
-    <Object Include="..\teem\x64\Release\defaultsHest.obj" />
-    <Object Include="..\teem\x64\Release\defaultsNrrd.obj" />
-    <Object Include="..\teem\x64\Release\dio.obj" />
-    <Object Include="..\teem\x64\Release\encoding.obj" />
-    <Object Include="..\teem\x64\Release\encodingAscii.obj" />
-    <Object Include="..\teem\x64\Release\encodingBzip2.obj" />
-    <Object Include="..\teem\x64\Release\encodingGzip.obj" />
-    <Object Include="..\teem\x64\Release\encodingHex.obj" />
-    <Object Include="..\teem\x64\Release\encodingRaw.obj" />
-    <Object Include="..\teem\x64\Release\endianAir.obj" />
-    <Object Include="..\teem\x64\Release\endianNrrd.obj" />
-    <Object Include="..\teem\x64\Release\enum.obj" />
-    <Object Include="..\teem\x64\Release\enumsNrrd.obj" />
-    <Object Include="..\teem\x64\Release\filt.obj" />
-    <Object Include="..\teem\x64\Release\format.obj" />
-    <Object Include="..\teem\x64\Release\formatEPS.obj" />
-    <Object Include="..\teem\x64\Release\formatNRRD.obj" />
-    <Object Include="..\teem\x64\Release\formatPNG.obj" />
-    <Object Include="..\teem\x64\Release\formatPNM.obj" />
-    <Object Include="..\teem\x64\Release\formatText.obj" />
-    <Object Include="..\teem\x64\Release\formatVTK.obj" />
-    <Object Include="..\teem\x64\Release\gzio.obj" />
-    <Object Include="..\teem\x64\Release\hestNrrd.obj" />
-    <Object Include="..\teem\x64\Release\histogram.obj" />
-    <Object Include="..\teem\x64\Release\iter.obj" />
-    <Object Include="..\teem\x64\Release\kernel.obj" />
-    <Object Include="..\teem\x64\Release\keyvalue.obj" />
-    <Object Include="..\teem\x64\Release\map.obj" />
-    <Object Include="..\teem\x64\Release\math.obj" />
-    <Object Include="..\teem\x64\Release\measure.obj" />
-    <Object Include="..\teem\x64\Release\methodsHest.obj" />
-    <Object Include="..\teem\x64\Release\methodsNrrd.obj" />
-    <Object Include="..\teem\x64\Release\miscAir.obj" />
-    <Object Include="..\teem\x64\Release\mop.obj" />
-    <Object Include="..\teem\x64\Release\parseAir.obj" />
-    <Object Include="..\teem\x64\Release\parseHest.obj" />
-    <Object Include="..\teem\x64\Release\parseNrrd.obj" />
-    <Object Include="..\teem\x64\Release\randMT.obj" />
-    <Object Include="..\teem\x64\Release\range.obj" />
-    <Object Include="..\teem\x64\Release\read.obj" />
-    <Object Include="..\teem\x64\Release\reorder.obj" />
-    <Object Include="..\teem\x64\Release\resampleContext.obj" />
-    <Object Include="..\teem\x64\Release\resampleNrrd.obj" />
-    <Object Include="..\teem\x64\Release\sane.obj" />
-    <Object Include="..\teem\x64\Release\simple.obj" />
-    <Object Include="..\teem\x64\Release\string.obj" />
-    <Object Include="..\teem\x64\Release\subset.obj" />
-    <Object Include="..\teem\x64\Release\superset.obj" />
-    <Object Include="..\teem\x64\Release\threadAir.obj" />
-    <Object Include="..\teem\x64\Release\tmfKernel.obj" />
-    <Object Include="..\teem\x64\Release\usage.obj" />
-    <Object Include="..\teem\x64\Release\winKernel.obj" />
-    <Object Include="..\teem\x64\Release\write.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

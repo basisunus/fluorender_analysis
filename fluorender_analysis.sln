@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tracking", "tracking\tracking.vcxproj", "{94D42E08-4B7A-48F8-866C-EF3CE822A3F3}"
 EndProject
@@ -78,6 +78,7 @@ Global
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Debug|Win32.Build.0 = Debug|Win32
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Debug|x64.ActiveCfg = Debug|x64
+		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Debug|x64.Build.0 = Debug|x64
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Release|Mixed Platforms.ActiveCfg = Release|Win32
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{C2F11614-33A9-4CB3-8965-BB5D525CF005}.Release|Win32.ActiveCfg = Release|Win32

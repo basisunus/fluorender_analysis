@@ -79,7 +79,10 @@ int main(int argc, const char* argv[])
 		return 0;
 	}
 	else
+	{
+		tm_processor.ResetVertexIDs(track_map);
 		printf("Track map read.\n");
+	}
 
 	ostringstream oss;
 	string fn_data;

@@ -74,6 +74,8 @@ namespace FL
 		bool Export(TrackMap& track_map, std::string &filename);
 		bool Import(TrackMap& track_map, std::string &filename);
 
+		bool ResetVertexIDs(TrackMap& track_map);
+
 		//get mapped cell
 		bool GetMappedID(TrackMap& track_map,
 			unsigned int id_in, unsigned int& id_out,
