@@ -391,7 +391,7 @@ airThreadCondBroadcast(airThreadCond *cond) {
 
 airThreadCond *
 airThreadCondNix(airThreadCond *cond) {
-  airThreadCond *ret;
+  airThreadCond *ret=0;
 
   if (cond) {
     cond->count = 0;
