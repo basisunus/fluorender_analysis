@@ -102,12 +102,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\PROJECTS\tracking\fluorender_analysis\Formats;E:\PROJECTS\tracking\fluorender_analysis\teem\Nrrd;E:\PROJECTS\tracking\fluorender_analysis\teem\Hest;E:\PROJECTS\tracking\fluorender_analysis\teem\Biff;E:\PROJECTS\tracking\fluorender_analysis\teem\Air;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\wxWidgets\src\tiff\libtiff;..\..\..\boost_1_59_0;..\;..\FLIVR;..\Formats;..\teem;..\teem\Air;..\teem\Biff;..\teem\Hest;..\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_core.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_aui.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_html.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxbase31ud_xml.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_adv.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_gl.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxmsw31ud_stc.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxscintillad.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxpngd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxtiffd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxjpegd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxzlibd.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxregexud.lib;E:\PROJECTS\wxWidgets\lib\vc_x64_lib\wxexpatd.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\FLIVR.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\Formats.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\pole.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\teem.lib;E:\PROJECTS\tracking\fluorender_analysis\x64\Debug\tracking.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\wxWidgets\lib\vc_x64_lib\wxtiffd.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxjpegd.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxzlibd.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxpngd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,14 +138,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;TEEM_DIO=0;TEEM_ENDIAN=1234;TEEM_QNANHIBIT=1;TEEM_32BIT=0;STATIC_COMPILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\FluoRender\wxWidgets\src\tiff\libtiff;E:\FluoRender\boost_1_58_0;E:\FluoRender\fluorender_analysis\;E:\FluoRender\fluorender_analysis\FLIVR;E:\FluoRender\fluorender_analysis\Formats;E:\FluoRender\fluorender_analysis\teem;E:\FluoRender\fluorender_analysis\teem\Air;E:\FluoRender\fluorender_analysis\teem\Biff;E:\FluoRender\fluorender_analysis\teem\Hest;E:\FluoRender\fluorender_analysis\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\wxWidgets\src\tiff\libtiff;..\..\..\boost_1_59_0;..\;..\FLIVR;..\Formats;..\teem;..\teem\Air;..\teem\Biff;..\teem\Hest;..\teem\Nrrd;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>E:\FluoRender\wxWidgets\lib\vc_x64_lib\wxtiff.lib;E:\FluoRender\wxWidgets\lib\vc_x64_lib\wxjpeg.lib;E:\FluoRender\wxWidgets\lib\vc_x64_lib\wxzlib.lib;E:\FluoRender\wxWidgets\lib\vc_x64_lib\wxpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\wxWidgets\lib\vc_x64_lib\wxtiff.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxjpeg.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxzlib.lib;..\..\..\wxWidgets\lib\vc_x64_lib\wxpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
